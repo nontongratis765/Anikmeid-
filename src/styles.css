@@ -1,0 +1,99 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-premium: var(--premium);
+  --color-brand: var(--brand);
+}
+
+/* Force dark Material You theme everywhere */
+:root {
+  --radius: 1rem;
+  --background: oklch(0.18 0.02 280);
+  --foreground: oklch(0.95 0.01 280);
+  --card: oklch(0.22 0.025 280);
+  --card-foreground: oklch(0.95 0.01 280);
+  --popover: oklch(0.22 0.025 280);
+  --popover-foreground: oklch(0.95 0.01 280);
+  --primary: oklch(0.68 0.18 265);
+  --primary-foreground: oklch(0.15 0.02 280);
+  --secondary: oklch(0.28 0.03 280);
+  --secondary-foreground: oklch(0.95 0.01 280);
+  --muted: oklch(0.26 0.02 280);
+  --muted-foreground: oklch(0.72 0.02 280);
+  --accent: oklch(0.32 0.05 280);
+  --accent-foreground: oklch(0.95 0.01 280);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.30 0.02 280);
+  --input: oklch(0.28 0.02 280);
+  --ring: oklch(0.68 0.18 265);
+  --premium: oklch(0.82 0.16 85);
+  --brand: oklch(0.72 0.17 250);
+}
+
+html, body { background: var(--background); color: var(--foreground); }
+body {
+  font-family: 'Google Sans', 'Roboto', system-ui, sans-serif;
+  touch-action: manipulation; /* prevent double-tap zoom */
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+}
+
+* { border-color: var(--border); }
+
+/* Shiny gold (premium) and shiny purple (owner/admin/developer) name effects */
+@keyframes shine-sweep {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.shiny-gold {
+  background: linear-gradient(90deg, #b8860b 0%, #ffd700 25%, #fff8b0 50%, #ffd700 75%, #b8860b 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine-sweep 3s linear infinite;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
+  filter: drop-shadow(0 0 4px rgba(255,215,0,0.4));
+}
+.shiny-gold-icon { color: #ffd700; filter: drop-shadow(0 0 4px rgba(255,215,0,0.7)); }
+.shiny-purple {
+  background: linear-gradient(90deg, #6b21a8 0%, #a855f7 25%, #e9d5ff 50%, #a855f7 75%, #6b21a8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine-sweep 3s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(168,85,247,0.5));
+}
+.shiny-purple-icon { color: #c084fc; filter: drop-shadow(0 0 4px rgba(192,132,252,0.8)); }
+
